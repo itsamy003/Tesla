@@ -26,6 +26,7 @@
             margin-bottom: 50px;
         }
     </style>
+    
 </head>
 
 <body>
@@ -50,17 +51,17 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3 class="hidden-md hidden-lg text-center">Introducing the Model 3</h3>
-                <P class="text-center">Be the first one to own the new Tesla Model 3 signup to our mailing list to find out more</P>
+                <P class="text-center">Be the first one to own the new Tesla Model 3. Signup to our mailing list to find out more</P>
 
-                <form action="#" class="form">
+                <form class="form" onsubmit="return false">
                     <div class="form-group">
                         <div class="col-md-12 mail-block">
-                            <input type="email" placeholder="Email" class="form-control">
+                            <input type="email" placeholder="Email" class="form-control" id="email">
                         </div>
-                        <div class="col-md-4 col-xs-4"><input type="text" placeholder="First Name" class="form-control"></div>
-                        <div class="col-md-4 col-xs-4"><input type="text" placeholder="Last Name" class="form-control"></div>
+                        <div class="col-md-4 col-xs-4"><input type="text" placeholder="First Name" class="form-control" id="fname"></div>
+                        <div class="col-md-4 col-xs-4"><input type="text" placeholder="Last Name" class="form-control" id="lname"></div>
                         <div class="col-md-2 col-xs-12">
-                            <select class="form-control" id="sel1">
+                            <select class="form-control" id="sel">
                 <option value="" disabled selected>Country</option>
                 <option value="AF">Afghanistan</option>
 	<option value="AX">Åland Islands</option>
@@ -313,7 +314,7 @@
 	<option value="ZW">Zimbabwe</option>
             </select>
                         </div>
-                        <div class="col-md-2"><input type="submit" value="submit" class="form-control btn-primary"></div>
+                        <div class="col-md-2"><input type="submit" value="submit" class="form-control btn-primary" id="form-submit"></div>
                     </div>
                 </form>
 
@@ -331,6 +332,28 @@
 
 
     </div>
+
+<script>
+
+    var userDetails ={};
+       var sub = document.getElementById('form-submit');
+    var email = document.getElementById('email');
+    var fname = document.getElementById('fname');
+    var lname = document.getElementById('lname');
+   
+   var country = document.getElementById("sel");
+   
+ 
+ 
+       sub.addEventListener('click', function(){
+        userDetails.email = email.value;
+        userDetails.fname = fname.value;
+        userDetails.lname = lname.value;
+        userDetails.country = country.value;
+        console.log(userDetails);
+
+       });
+</script>
 
 </body>
 
